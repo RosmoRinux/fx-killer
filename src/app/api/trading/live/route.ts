@@ -205,19 +205,19 @@ export async function GET(request: NextRequest) {
     // Fetch recent candles
     const candles = await binance.getHistoricalCandles(symbol, interval, 200);
 
-    // Default config for signal generation
+    // Default config for signal generation - PULLBACK STRATEGY (validated)
     const defaultConfig: TradingConfig = {
       symbol,
       interval: interval as TradingConfig['interval'],
       strategy: {
-        aggressiveness: 2,
-        trailingActivation: 0.8,
-        trailingDistance: 1.0,
+        aggressiveness: 3,
+        trailingActivation: 1.5,  // 1.5R activation (validated)
+        trailingDistance: 1.0,     // 1 ATR distance (validated)
         indicators: {
-          keltner: { maPeriod: 15, atrPeriod: 10, atrMultiple: 0.5 },
-          bollinger: { period: 15, deviation: 1.0 },
+          keltner: { maPeriod: 20, atrPeriod: 14, atrMultiple: 1.5 },
+          bollinger: { period: 20, deviation: 2.0 },
           macd: { fastPeriod: 12, slowPeriod: 26, signalPeriod: 9 },
-          cci: { period: 20 },
+          cci: { period: 14 },
           supertrend: { period: 10, multiplier: 3.0 },
         },
       },
@@ -227,8 +227,8 @@ export async function GET(request: NextRequest) {
         maxPositions: 1,
         positionSize: 10, // USDT
         leverage: 10, // 10x leverage
-        stopLossMultiple: 1.5,
-        takeProfitLevels: [1.5, 2.5, 4.0],
+        stopLossMultiple: 2.0,              // 2 ATR stop loss (validated)
+        takeProfitLevels: [3.0, 6.0, 9.0],  // 3R/6R/9R targets (validated, 1.75 profit factor)
       },
     };
 

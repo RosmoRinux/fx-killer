@@ -1,24 +1,24 @@
 /**
- * 快速测试改进后的策略
+ * 20000根K线回测（约2周数据）
  */
 
 import { BacktestEngine } from '../src/lib/trading/backtest/engine';
 import { HistoricalDataProvider } from '../src/lib/trading/connectors/historicalDataProvider';
 import type { TradingConfig } from '../src/lib/trading/types';
 
-async function quickTest() {
-  console.log('🎯 全新回调策略测试 - 趋势回调入场，不追突破\n');
+async function test20k() {
+  console.log('🎯 回调策略 - 20000根K线回测（约2周）\n');
 
   const historicalProvider = new HistoricalDataProvider();
   const endDate = Date.now();
-  const startDate = endDate - (30 * 24 * 60 * 60 * 1000); // 30天
+  const startDate = endDate - (14 * 24 * 60 * 60 * 1000);
   const initialCapital = 100000;
 
-  console.log('📊 生成50000根K线（约1个月）...');
+  console.log('📊 生成20000根K线...');
   const candles = await historicalProvider.generateHistoricalCandles(
     'XAUUSDT',
     '1m',
-    50000, // 5倍数据量
+    20000,
     startDate,
     endDate
   );
@@ -29,9 +29,8 @@ async function quickTest() {
     interval: '1m',
     strategy: {
       aggressiveness: 3,
-      // 回调策略: 适中的跟踪止损参数
-      trailingActivation: 1.5,   // 1.5R激活
-      trailingDistance: 1.0,      // 1 ATR距离
+      trailingActivation: 1.5,
+      trailingDistance: 1.0,
       indicators: {
         keltner: { maPeriod: 20, atrPeriod: 14, atrMultiple: 1.5 },
         bollinger: { period: 20, deviation: 2.0 },
@@ -46,9 +45,8 @@ async function quickTest() {
       maxPositions: 1,
       positionSize: 0.01,
       leverage: 20,
-      // 回调策略FINAL: 2 ATR止损，3R/6R/9R止盈
-      stopLossMultiple: 2.0,               // 适中止损
-      takeProfitLevels: [3.0, 6.0, 9.0],   // 最终目标，力求1.5+盈亏比
+      stopLossMultiple: 2.0,
+      takeProfitLevels: [3.0, 6.0, 9.0],
     },
   };
 
@@ -62,40 +60,34 @@ async function quickTest() {
 
   const result = await engine.runBacktest(candles);
 
-  console.log('=' .repeat(80));
-  console.log('📈 改进后策略测试结果:\n');
+  console.log('='.repeat(80));
+  console.log('📈 回测结果:\n');
   console.log(`总交易次数: ${result.totalTrades}`);
   console.log(`盈利交易: ${result.winningTrades || 0}`);
   console.log(`亏损交易: ${result.losingTrades || 0}`);
   console.log(`胜率: ${((result.winningTrades || 0) / result.totalTrades * 100).toFixed(2)}%`);
   console.log(`盈亏比: ${result.profitFactor.toFixed(2)}`);
-  console.log(`平均盈利: $${(result.avgWin || 0).toFixed(2)}`);
-  console.log(`平均亏损: $${(result.avgLoss || 0).toFixed(2)}`);
   console.log(`总收益: ${(result.totalPnlPercent || 0).toFixed(2)}%`);
-  console.log(`总盈利: $${(result.totalProfit || 0).toFixed(2)}`);
-  console.log(`总亏损: $${(result.totalLoss || 0).toFixed(2)}`);
   console.log(`最终资金: $${(result.finalCapital || initialCapital).toFixed(2)}`);
   console.log(`最大回撤: ${(result.maxDrawdownPercent || 0).toFixed(2)}%`);
-  console.log('=' .repeat(80));
+  console.log('='.repeat(80));
 
   console.log('\n🎯 目标达成情况:');
   console.log(`盈亏比 ${result.profitFactor >= 1.5 ? '✅' : '❌'} ${result.profitFactor.toFixed(2)} (目标 >=1.5)`);
   console.log(`总收益 ${(result.totalPnlPercent || 0) > 0 ? '✅' : '❌'} ${(result.totalPnlPercent || 0).toFixed(2)}% (目标 >0%)`);
 
   if (result.profitFactor >= 1.5 && (result.totalPnlPercent || 0) > 0) {
-    console.log('\n🎉 改进成功！盈亏比达标！');
+    console.log('\n🎉 策略表现优秀！');
   } else if (result.profitFactor >= 1.0) {
-    console.log('\n✅ 有进步！继续优化中。');
-  } else if (result.profitFactor < 0.5) {
-    console.log('\n⚠️ 策略需要重新设计。当前改进方向可能不对。');
+    console.log('\n✅ 策略有盈利能力');
   } else {
-    console.log('\n⚠️ 需要进一步调整参数。');
+    console.log('\n⚠️ 需要优化');
   }
-
-  console.log('\n📊 详细分析:');
-  console.log(`- 平均每笔盈利: $${(result.totalProfit || 0) / Math.max(result.winningTrades || 1, 1)}`);
-  console.log(`- 平均每笔亏损: $${Math.abs((result.totalLoss || 0) / Math.max(result.losingTrades || 1, 1))}`);
-  console.log(`- R倍数期望: ${((result.winningTrades || 0) / result.totalTrades * (result.totalProfit || 0) / Math.max(result.winningTrades || 1, 1) - (result.losingTrades || 0) / result.totalTrades * Math.abs((result.totalLoss || 0) / Math.max(result.losingTrades || 1, 1))).toFixed(2)}`);
 }
 
-quickTest().catch(console.error);
+test20k()
+  .then(() => process.exit(0))
+  .catch(err => {
+    console.error('测试失败:', err);
+    process.exit(1);
+  });
