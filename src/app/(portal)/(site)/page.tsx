@@ -14,6 +14,7 @@ import StatsSection from '@/components/custom/StatsSection';
 import InterviewCTA from '@/components/custom/InterviewCTA';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ShineButton from '@/components/custom/ShineButton';
 
 const DummyContent = () => {
   const router = useRouter();
@@ -91,12 +92,12 @@ const DummyContent = () => {
             <FadeInSlide direction="up" delay={1.0}>
               <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
                 <PulseButton>
-                  <button
+                  <ShineButton
                     onClick={() => router.push('/splan/join-us')}
                     className="px-10 py-5 bg-black text-white text-lg font-bold border-2 border-black hover:bg-white hover:text-black transition-colors"
                   >
                     {t('hero.cta.learn')}
-                  </button>
+                  </ShineButton>
                 </PulseButton>
                 <button
                   onClick={() => router.push('/dashboard')}

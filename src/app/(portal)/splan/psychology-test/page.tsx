@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import ShineButton from '@/components/custom/ShineButton';
 
 // Types
 type DimensionKey = 'risk' | 'emotion' | 'decision' | 'discipline' | 'stress';
@@ -711,12 +712,12 @@ export default function PsychologyTestPage() {
                 </div>
               </div>
 
-              <button
+              <ShineButton
                 onClick={startTest}
                 className="px-10 py-4 bg-black dark:bg-white text-white dark:text-black text-lg font-semibold border-2 border-black dark:border-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors"
               >
                 {t('psytest.welcome.start')}
-              </button>
+              </ShineButton>
 
               <p className="mt-6 text-sm text-gray-500 dark:text-gray-400 italic">{t('psytest.welcome.note')}</p>
             </motion.div>
@@ -882,7 +883,7 @@ export default function PsychologyTestPage() {
 
               {/* Actions */}
               <div className="flex justify-center">
-                <button
+                <ShineButton
                   onClick={() => {
                     if (confirm(t('psytest.result.retry.confirm'))) {
                       startTest();
@@ -891,7 +892,7 @@ export default function PsychologyTestPage() {
                   className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black font-semibold border-2 border-black dark:border-white hover:bg-white hover:text-black dark:hover:bg-black dark:hover:text-white transition-colors"
                 >
                   {t('psytest.result.retry')}
-                </button>
+                </ShineButton>
               </div>
             </motion.div>
           )}

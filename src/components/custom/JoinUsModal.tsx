@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import EmailContactModal from '@/components/custom/EmailContactModal';
 import BrandName from '@/components/custom/BrandName';
+import ShineButton from '@/components/custom/ShineButton';
 
 interface JoinUsModalProps {
   isOpen: boolean;
@@ -88,14 +89,14 @@ export default function JoinUsModal({ isOpen, onClose }: JoinUsModalProps) {
                 </div>
 
                 <div className="flex flex-col gap-3">
-                  <button
+                  <ShineButton
                     onClick={() => {
                       setIsEmailModalOpen(true);
                     }}
                     className="w-full py-3 px-6 bg-black dark:bg-white text-white dark:text-black font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-all"
                   >
                      联系团队长
-                  </button>
+                  </ShineButton>
                   <a
                     href="/splan/psychology-test"
                     onClick={onClose}
