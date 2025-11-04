@@ -4302,7 +4302,7 @@ export const blogPosts: BlogPost[] = [
 </div>
 
 <div class="bg-black dark:bg-white text-white dark:text-black p-8 mb-8 border-2 border-black dark:border-white">
-<p class="text-2xl font-bold mb-4 text-white dark:text-black text-center">🎯 专业交易员的心理特质</p>
+<p class="text-2xl font-bold mb-4 text-white dark:text-black text-left">🎯 专业交易员的心理特质</p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 <div>
 <p class="text-lg font-bold mb-2 text-white dark:text-black">情绪稳定</p>
