@@ -9,7 +9,6 @@ import Providers from "@/components/providers/Providers";
 import MouseFollower from "@/components/effects/MouseFollower";
 import ScrollProgress, { BackToTop } from "@/components/effects/ScrollProgress";
 import PageLoader from "@/components/effects/PageLoader";
-import GridBackground from "@/components/effects/GridBackground";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -98,7 +97,6 @@ export default function PortalLayout({
       </head>
       <body suppressHydrationWarning>
         <Providers>
-          <GridBackground />
           <PageLoader />
           <MouseFollower />
           <ScrollProgress />
