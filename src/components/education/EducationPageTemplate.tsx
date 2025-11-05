@@ -96,7 +96,7 @@ export default function EducationPageTemplate({
                   <span>{faq.question}</span>
                   <span className="transform group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <div className="p-6 pt-0 text-gray-700 dark:text-gray-300 border-t-2 border-black dark:border-white">
+                <div className="px-6 py-6 text-gray-700 dark:text-gray-300 border-t-2 border-black dark:border-white">
                   <p className="leading-relaxed">{faq.answer}</p>
                 </div>
               </details>
@@ -138,7 +138,15 @@ export default function EducationPageTemplate({
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/splan/join-us"
+                href={
+                  content.ctaPrimaryButton.includes('合作经纪商') ||
+                  content.ctaPrimaryButton.includes('Partner Brokers')
+                    ? '/partners/brokers'
+                    : content.ctaPrimaryButton.includes('心理测评') ||
+                      content.ctaPrimaryButton.includes('Psychology Test')
+                    ? '/splan/psychology-test'
+                    : '/splan/join-us'
+                }
                 className="px-10 py-4 bg-white dark:bg-black text-black dark:text-white font-bold text-lg border-2 border-white dark:border-black hover:bg-transparent hover:text-white dark:hover:bg-transparent dark:hover:text-black transition-all inline-block text-center"
               >
                 {content.ctaPrimaryButton}
