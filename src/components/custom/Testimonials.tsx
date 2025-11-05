@@ -111,6 +111,114 @@ const testimonials = [
       zh: "汇刃的筛选机制很严格，但正因如此，通过的人都是真正有潜力的。我很庆幸自己坚持下来了。现在回头看，那45天的投入是我做过最值得的决定。",
       en: "FX Killer's screening mechanism is strict, but that's why those who pass truly have potential. I'm glad I persisted. Looking back, those 45 days of investment were the most worthwhile decision I've ever made."
     }
+  },
+  {
+    id: 7,
+    name: {
+      zh: "杨同学",
+      en: "Student Yang"
+    },
+    role: {
+      zh: "职业交易员",
+      en: "Professional Trader"
+    },
+    avatar: "Y",
+    rating: 5,
+    date: "2024-05",
+    content: {
+      zh: "我是从传统金融行业转行过来的。在汇刃学到的实战技能比我在银行5年学到的还多。这里没有废话，只有干货和结果导向的培训。",
+      en: "I transitioned from traditional finance. I learned more practical skills at FX Killer than my 5 years at the bank. No nonsense here, only solid content and results-oriented training."
+    }
+  },
+  {
+    id: 8,
+    name: {
+      zh: "周同学",
+      en: "Student Zhou"
+    },
+    role: {
+      zh: "独立交易员",
+      en: "Independent Trader"
+    },
+    avatar: "Z",
+    rating: 5,
+    date: "2024-04",
+    content: {
+      zh: "最让我感动的是团队长的耐心指导。每次交易失误都会详细分析原因，帮我建立正确的交易思维。30天培训结束后，我完全掌握了盈利的方法。",
+      en: "What moved me most was the team leader's patient guidance. Every trading mistake was analyzed in detail, helping me build correct trading thinking. After 30 days, I fully mastered profitable methods."
+    }
+  },
+  {
+    id: 9,
+    name: {
+      zh: "吴同学",
+      en: "Student Wu"
+    },
+    role: {
+      zh: "职业交易员",
+      en: "Professional Trader"
+    },
+    avatar: "W",
+    rating: 5,
+    date: "2024-03",
+    content: {
+      zh: "汇刃给了我第二次职业生涯的机会。之前在互联网公司996，现在做交易时间自由，收入还翻倍了。最重要的是找到了真正热爱的事业。",
+      en: "FX Killer gave me a second career opportunity. Previously worked 996 in an internet company, now trading with flexible hours and doubled income. Most importantly, I found a career I truly love."
+    }
+  },
+  {
+    id: 10,
+    name: {
+      zh: "郑同学",
+      en: "Student Zheng"
+    },
+    role: {
+      zh: "基金经理",
+      en: "Fund Manager"
+    },
+    avatar: "Z",
+    rating: 5,
+    date: "2024-02",
+    content: {
+      zh: "心理测评环节非常关键，它帮我认清了自己的优劣势。培训过程针对性很强，通过考核后我管理着7位数资金，月收入稳定在5位数以上。",
+      en: "The psychology assessment was crucial, helping me recognize my strengths and weaknesses. The training was highly targeted. After passing, I manage seven-figure funds with stable five-figure monthly income."
+    }
+  },
+  {
+    id: 11,
+    name: {
+      zh: "孙同学",
+      en: "Student Sun"
+    },
+    role: {
+      zh: "独立交易员",
+      en: "Independent Trader"
+    },
+    avatar: "S",
+    rating: 5,
+    date: "2024-01",
+    content: {
+      zh: "从面试到培训到考核，每个环节都能看出汇刃的专业性。这不是培训班，而是真正的交易员孵化器。我用20个工作日通过考核，现在每月稳定盈利。",
+      en: "From interview to training to assessment, every step shows FX Killer's professionalism. This isn't a training class, but a real trader incubator. I passed in 20 working days and now profit stably monthly."
+    }
+  },
+  {
+    id: 12,
+    name: {
+      zh: "钱同学",
+      en: "Student Qian"
+    },
+    role: {
+      zh: "职业交易员",
+      en: "Professional Trader"
+    },
+    avatar: "Q",
+    rating: 5,
+    date: "2023-12",
+    content: {
+      zh: "最大的收获是学会了风险管理和资金管理。以前总是重仓梭哈，现在懂得了稳健盈利的重要性。通过考核后拿到资金支持，压力小了很多。",
+      en: "The biggest gain was learning risk and money management. Used to go all-in, now understand the importance of stable profits. Got funding support after passing, much less pressure."
+    }
   }
 ];
 
@@ -131,24 +239,30 @@ export default function Testimonials() {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black dark:text-white">
             {language === 'zh' ? '学员感言' : 'Student Testimonials'}
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-4">
             {language === 'zh'
               ? '来自真实学员的反馈，他们通过系统培训成为职业交易员'
               : 'Real feedback from students who became professional traders through systematic training'}
           </p>
+          <p className="text-sm text-gray-500 dark:text-gray-500">
+            {language === 'zh' ? '← 左右滑动查看更多 →' : '← Scroll to see more →'}
+          </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={testimonial.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gray-50 dark:bg-gray-900 border-2 border-black dark:border-white p-6 hover:shadow-lg transition-shadow"
-            >
+        {/* Testimonials Horizontal Scroll */}
+        <div className="relative">
+          <div className="overflow-x-auto pb-4 scrollbar-hide">
+            <div className="flex gap-6" style={{ width: 'max-content' }}>
+              {testimonials.map((testimonial, index) => (
+                <motion.div
+                  key={testimonial.id}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.6, delay: index * 0.05 }}
+                  className="bg-gray-50 dark:bg-gray-900 border-2 border-black dark:border-white p-6 hover:shadow-lg transition-shadow"
+                  style={{ width: '380px', minWidth: '380px' }}
+                >
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -185,8 +299,20 @@ export default function Testimonials() {
               </p>
             </motion.div>
           ))}
+            </div>
+          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 }

@@ -12,6 +12,7 @@ import { FadeInSlide, ScaleFadeIn, HoverCard, PulseButton, FloatingBadge, Stagge
 import Testimonials from '@/components/custom/Testimonials';
 import StatsSection from '@/components/custom/StatsSection';
 import InterviewCTA from '@/components/custom/InterviewCTA';
+import CandidateRequirements from '@/components/custom/CandidateRequirements';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import ShineButton from '@/components/custom/ShineButton';
@@ -684,6 +685,9 @@ const DummyContent = () => {
 
       {/* Testimonials */}
       <Testimonials />
+
+      {/* Candidate Requirements */}
+      <CandidateRequirements />
 
       {/* Interview CTA */}
       <InterviewCTA />

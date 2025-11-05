@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import EmailContactModal from '@/components/custom/EmailContactModal';
 import { useLanguage } from '@/contexts/LanguageContext';
+import CandidateRequirements from '@/components/custom/CandidateRequirements';
 
 // FAQ data types
 interface FAQ {
@@ -484,6 +485,11 @@ export default function FAQPage() {
             </button>
           </div>
         </motion.div>
+      </div>
+
+      {/* Candidate Requirements */}
+      <div className="mb-20">
+        <CandidateRequirements />
       </div>
 
       {/* Email Contact Modal */}

@@ -447,6 +447,36 @@ const translations: Record<Language, Record<string, string>> = {
     'notification.message2': '已成为试用会员',
     'notification.time': '刚刚',
 
+    // 不适合人群 & 候选人期望 & 考察重点
+    'unsuitable.title': '明确不适合的人群',
+    'unsuitable.subtitle': '以下类型的候选人不适合我们的培训',
+    'unsuitable.pressure': '经济压力大、指望交易快速变现的人',
+    'unsuitable.pressure.desc': '交易需要时间积累和心态培养，急功近利只会导致失败',
+    'unsuitable.gambler': '期望通过交易"暴富"或有"赌徒"心态的人',
+    'unsuitable.gambler.desc': '职业交易是一项严肃的事业，需要理性和纪律，不是赌博',
+
+    'expectations.title': '对候选人的期望',
+    'expectations.subtitle': '我们希望您具备以下特质',
+    'expectations.mindset': '拥有平和的心态、果决的执行力',
+    'expectations.mindset.desc': '能够冷静面对市场波动，果断执行交易计划',
+    'expectations.stable': '当前无经济困扰，能将交易作为终身事业追求',
+    'expectations.stable.desc': '有稳定的经济基础，可以专注于长期发展',
+    'expectations.initiative': '具备高度主观能动性，认真对待培训',
+    'expectations.initiative.desc': '主动学习，积极实践，对培训全力以赴',
+
+    'assessment.title': '考察重点',
+    'assessment.subtitle': '面试和培训将重点评估以下综合能力',
+    'assessment.learning': '学习力',
+    'assessment.learning.desc': '快速理解和掌握新知识的能力',
+    'assessment.understanding': '理解力',
+    'assessment.understanding.desc': '深入理解市场规律和交易逻辑',
+    'assessment.execution': '执行力',
+    'assessment.execution.desc': '严格执行交易计划和风险管理',
+    'assessment.mentality': '心态',
+    'assessment.mentality.desc': '保持稳定情绪，不受盈亏影响',
+    'assessment.motivation': '交易动机',
+    'assessment.motivation.desc': '正确的交易动机和职业追求',
+
     // Blog
     'blog.title': '交易博客',
     'blog.subtitle': '专业交易知识、实战经验与交易智慧分享',
@@ -893,6 +923,36 @@ const translations: Record<Language, Record<string, string>> = {
     'notification.message1': 'Contacted team leader to join forex trader training',
     'notification.message2': 'Became a trial member',
     'notification.time': 'Just now',
+
+    // Unsuitable Candidates & Expectations & Assessment
+    'unsuitable.title': 'Unsuitable Candidates',
+    'unsuitable.subtitle': 'The following types of candidates are not suitable for our training',
+    'unsuitable.pressure': 'People with financial pressure seeking quick profits from trading',
+    'unsuitable.pressure.desc': 'Trading requires time accumulation and mental cultivation; eagerness for quick success only leads to failure',
+    'unsuitable.gambler': 'People expecting to "get rich quick" or with a "gambler" mentality',
+    'unsuitable.gambler.desc': 'Professional trading is a serious career requiring rationality and discipline, not gambling',
+
+    'expectations.title': 'Candidate Expectations',
+    'expectations.subtitle': 'We hope you possess the following qualities',
+    'expectations.mindset': 'Calm mindset and decisive execution',
+    'expectations.mindset.desc': 'Ability to face market fluctuations calmly and execute trading plans decisively',
+    'expectations.stable': 'No current financial troubles, able to pursue trading as a lifelong career',
+    'expectations.stable.desc': 'Stable economic foundation to focus on long-term development',
+    'expectations.initiative': 'High initiative and serious commitment to training',
+    'expectations.initiative.desc': 'Proactive learning, active practice, full dedication to training',
+
+    'assessment.title': 'Assessment Focus',
+    'assessment.subtitle': 'Interview and training will assess the following comprehensive abilities',
+    'assessment.learning': 'Learning Ability',
+    'assessment.learning.desc': 'Ability to quickly understand and master new knowledge',
+    'assessment.understanding': 'Comprehension',
+    'assessment.understanding.desc': 'Deep understanding of market patterns and trading logic',
+    'assessment.execution': 'Execution',
+    'assessment.execution.desc': 'Strict execution of trading plans and risk management',
+    'assessment.mentality': 'Mentality',
+    'assessment.mentality.desc': 'Maintain stable emotions, unaffected by profits and losses',
+    'assessment.motivation': 'Trading Motivation',
+    'assessment.motivation.desc': 'Correct trading motivation and career pursuit',
 
     // Blog
     'blog.title': 'Trading Blog',
