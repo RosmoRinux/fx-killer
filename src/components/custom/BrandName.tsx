@@ -9,7 +9,7 @@ export default function BrandName() {
     return (
       <>
         <span className="font-black">汇</span>
-        <span className="font-normal text-gray-600 dark:text-gray-400">刃</span>
+        <span className="font-normal text-gray-600 dark:text-gray-400">猫</span>
       </>
     );
   }
